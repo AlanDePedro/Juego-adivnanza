@@ -1,0 +1,37 @@
+
+import random
+
+
+def juego_adivinanza():
+    # Generar un numero del 1 al 100
+    numero_secreto = random.randint(1, 100)
+    intentos = 0
+    adivinado = False
+
+    # primeras lineas del juego donde se da la bienvenida
+    print("¡Bienvenido al juego de adivinanza de número!")
+    print("Tenes que adivinar un numero entre 1 al 100")
+    print("¡Intenta adivinarlo!")
+
+    while not adivinado:
+        # solicitar un numero
+        adivinanza = input("Introduci el numero")
+
+        # verificar que la entrada sea un numero
+        if adivinanza.isdigit():
+            adivinanza = int(adivinanza)  # lo paso de string a number
+            intentos += 1
+
+            if adivinanza < numero_secreto:
+                print(f"El numero es mayor a {adivinanza}")
+            elif adivinanza > numero_secreto:
+                print(f"El numero es menor a {adivinanza}")
+            else:
+                print(
+                    f"¡ELICIDADES lo adivinaste! El numero {adivinanza} es el es secreto y lo lograste en {intentos} intentos"
+                )
+        else:
+            print("Por favor introduci un numero que este entre el 1 y el 100")
+            adivinado = True
+
+juego_adivinanza()
